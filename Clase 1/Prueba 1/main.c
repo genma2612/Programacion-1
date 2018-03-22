@@ -3,17 +3,21 @@
 
 int main()
 {
-    /*
-    datos numeros enteros: int (4, 5, -6)
-    datos numeros decimales: float (2,5; -1,45)
-    dato caracter: char
-    declaracion de variable: int variable1 --- variable1 = 1
-    */
     int numero1;
     float numero2;
-    numero1 = 1;
-    numero2 = 5.6;
+    char letra;
+    float suma;
+    printf("Ingrese un numero entero: ");
+    scanf("%d", &numero1);
+    printf("Ingrese un numero con coma: ");
+    scanf("%f", &numero2);
+    printf("Ingrese una letra: \n");
+    letra = getch();
+    //fflush(stdin); // fflush: vacia buffer, stdin es buffer de entrada
+    //scanf("%c", &letra); //espacio entre comilla y %, buffer vacio
+    suma = numero1 + numero2;
     printf("El 1er numero es: %d y el 2do es: %.1f\n",numero1,numero2);
-    printf("Hello world!\n");
+    printf("La suma es: %.1f\n",suma);
+    printf("La letra es %c\n",letra);
     return 0;
 }

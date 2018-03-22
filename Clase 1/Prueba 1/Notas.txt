@@ -14,3 +14,6 @@ datos numeros decimales: float (2,5; -1,45)
 datos caracteres: char
 se "concatena" con ",".
 
+buffer de entrada: registro que guarda valores. Al presionar Enter pasa a memoria principal.
+
+getche() / getch()
