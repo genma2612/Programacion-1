@@ -1,9 +1,9 @@
-Funciòn Main (principal) - Entry point
+FunciÃ²n Main (principal) - Entry point
 El programa siempre inicia desde main.
-"printf" genera informaciòn (equivalente a console.log)
-archivo "main.c" còdigo fuente del programa.
+"printf" genera informaciÃ²n (equivalente a console.log)
+archivo "main.c" cÃ²digo fuente del programa.
 archivo "*.cbp" representa el proyecto.
-"main.o" còdigo objeto resultado de la compilaciòn (traducciòn a binario de codigo fuente)
+"main.o" cÃ²digo objeto resultado de la compilaciÃ²n (traducciÃ²n a binario de codigo fuente)
 
 \n \a secuencias de escape.
 
