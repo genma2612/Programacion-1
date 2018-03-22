@@ -1,0 +1,16 @@
+Funciòn Main (principal) - Entry point
+El programa siempre inicia desde main.
+"printf" genera informaciòn (equivalente a console.log)
+archivo "main.c" còdigo fuente del programa.
+archivo "*.cbp" representa el proyecto.
+"main.o" còdigo objeto resultado de la compilaciòn (traducciòn a binario de codigo fuente)
+
+\n \a secuencias de escape.
+
+Se indica el tipo de dato al momento de crear la variable.
+
+datos numeros enteros: int (4, 5, -6)
+datos numeros decimales: float (2,5; -1,45)
+datos caracteres: char
+se "concatena" con ",".
+
