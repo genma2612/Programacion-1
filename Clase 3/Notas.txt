@@ -1,0 +1,2 @@
+Ventajas de funciones (micro programas dentro de un programa, realiza una tarea especifica.)
+Ideal de toda funcion es el prototipo 3. (Recibe dato - lo procesa - retorna dato procesado)
