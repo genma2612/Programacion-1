@@ -1,0 +1,5 @@
+Factorial de un numero x! 
+5! = 5 * 4 * 3 * 2 * 1 
+5! = 120
+
+TP: Utilizar bibliotecas, documentar. Mostrar valores de X, Y al cargarlos. (Utilizar flag), utilizar flotantes. (Factorial debe ser entero positivo)

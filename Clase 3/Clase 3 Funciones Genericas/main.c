@@ -3,6 +3,8 @@
 
 int pedirEntero(char[], int, int);
 int validarEntero(int, int, int, char[]);
+int pedirFlotante(char[], float, float);
+char pedirChar(char[], char, char);
 
 int main()
 {
@@ -34,3 +36,19 @@ int validarEntero(int dato, int min, int max, char mensaje[])
     }
     // return dato // Al ser el mismo dato que entra y sale, no es necesario declarar return
 }
+
+int pedirFlotante(char[], float, float)
+{
+    int numero;
+    printf("%s", mensaje);
+    scanf("%f", &numero);
+}
+
+
+char pedirChar(char[], char, char)
+{
+    char caracter;
+    printf("%s", mensaje);
+    scanf("%c", &caracter);
+}
+
