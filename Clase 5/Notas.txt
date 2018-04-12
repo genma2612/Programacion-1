@@ -1,0 +1,16 @@
+array [x] ej. Int Vector[5]
+x = cantidad de elementos a guardar. 
+(5 elementos, 20 bytes reservados en memoria)
+
+printf(vector) apunta a la direccion del primer elemento del vector, o donde èste inicia.
+
+#define: Directiva del pre-compilador.  Ej. #define TAM 5 recorre el texto y reemplaza cada aparicion de TAM por el numero 5.
+
+Siempre que se reciba un vector en una funciòn, se debe recibir tambien su tamaño. funcion(int nombre_vector[], int x) (x = tamaño de vector)
+
+ejercicio proyecto F
+funcion que reciba el vector y un numero, lo busque en el vector y devuelva el indice del vector en donde se encuentra dicho numero.
+
+tarea:  funcion que devuelva la cantidad de numeros pares en el array.
+		funcion que devuelva la cantidad de numeros positivos.
+		funcion que (similar "F") que busque un char.
