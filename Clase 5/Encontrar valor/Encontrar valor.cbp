@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Clase 5 F" />
+		<Option title="Encontrar Valor" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -34,6 +34,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="vectores.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="vectores.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

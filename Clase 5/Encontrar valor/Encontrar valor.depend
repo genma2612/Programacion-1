@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1523546826 source:d:\prog 1 temp\clase 5\clase 5 f\main.c
+	<stdio.h>
+	<stdlib.h>
+	"vectores.h"
+
+1523546829 d:\prog 1 temp\clase 5\clase 5 f\vectores.h
+
+1523546839 source:d:\prog 1 temp\clase 5\clase 5 f\vectores.c
+	<stdio.h>
+	"vectores.h"
+
+1523551227 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 5\clase 5 f\main.c
+	<stdio.h>
+	<stdlib.h>
+	"vectores.h"
+
+1523551227 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 5\clase 5 f\vectores.h
+
+1523564016 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 5\clase 5 f\vectores.c
+	<stdio.h>
+	"vectores.h"
+

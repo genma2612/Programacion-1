@@ -48,8 +48,10 @@ int buscarValor(int vec[], int tamano, int valor)
     for(i=0;i<tamano;i++)
     {
         if(valor == vec[i]) //Else dentro de for no es una buena practica.
+        {
             index = i;
             break;
+        }
     }
     return index;
 }

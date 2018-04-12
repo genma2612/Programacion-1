@@ -8,7 +8,7 @@ printf(vector) apunta a la direccion del primer elemento del vector, o donde èst
 
 Siempre que se reciba un vector en una funciòn, se debe recibir tambien su tamaño. funcion(int nombre_vector[], int x) (x = tamaño de vector)
 
-ejercicio proyecto F
+ejercicio Enconrar valor
 funcion que reciba el vector y un numero, lo busque en el vector y devuelva el indice del vector en donde se encuentra dicho numero.
 
 tarea:  funcion que devuelva la cantidad de numeros pares en el array.

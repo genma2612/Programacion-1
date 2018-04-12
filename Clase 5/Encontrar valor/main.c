@@ -6,13 +6,9 @@
 int main()
 {
     int vector[TAM] = {};
-    int valorMax;
     int indice;
     cargarVector(vector, TAM);
-    modificarValor(vector);
     mostrarVector(vector, TAM);
-    valorMax = buscarMaximo(vector, TAM);
-    printf("El valor maximo guardado en el vector es: %d\n", valorMax);
     indice = buscarValor(vector, TAM, 14);
     if(indice == -1)
     {
@@ -20,8 +16,8 @@ int main()
     }
     else
     {
-        printf("Encontro el valor\n");
+        printf("Encontro el valor.\n");
     }
-    printf("El indice esta en la posicion: %d\n", indice);
+    printf("El indice esta en la posicion: %d.\n", indice);
     return 0;
 }
