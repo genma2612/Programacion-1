@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1446667744 source:d:\lab1 temp\clase 6\clase 6 b\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1523621877 source:d:\lab1 temp\clase 6\clase 6 b\vectores.c
+	<stdio.h>
+	"vectores.h"
+
+1523620664 d:\lab1 temp\clase 6\clase 6 b\vectores.h
+

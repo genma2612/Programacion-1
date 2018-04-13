@@ -6,13 +6,13 @@
 int main()
 {
     int vector[TAM] = {-2,-4,3,6,-1};
-    int contPar;
-    int contPosi;
+    int cantPar;
+    int cantPosi;
     //cargarVector(vector, TAM);
     mostrarVector(vector, TAM);
-    contPar = contarPares(vector, TAM);
-    printf("La cantidad de numeros pares en el vector es: %d\n", contPar);
-    contPosi = contarPositivos(vector, TAM);
-    printf("La cantidad de numeros positivos en el vector es: %d\n", contPosi);
+    cantPar = contarPares(vector, TAM);
+    printf("La cantidad de numeros pares en el vector es: %d\n", cantPar);
+    cantPosi = contarPositivos(vector, TAM);
+    printf("La cantidad de numeros positivos en el vector es: %d\n", cantPosi);
     return 0;
 }

@@ -7,17 +7,17 @@ int main()
 {
     char vector[TAM] = {'a','b','c','d','e'};
     char aBuscar = 'd';
-    int retorno;
+    int indexLetra;
     //cargarVector(vector, TAM);
     mostrarVectorChar(vector, TAM);
-    retorno = buscarChar(vector, TAM, aBuscar);
-    if(retorno == -1)
+    indexLetra = buscarChar(vector, TAM, aBuscar);
+    if(indexLetra == -1)
     {
         printf("\nNo se encuentra el char \"%c\" en el vector", aBuscar);
     }
     else
     {
-        printf("\nSe encontro el char \"%c\" en el subindice %d.", aBuscar, retorno);
+        printf("\nSe encontro el char \"%c\" en el subindice %d.", aBuscar, indexLetra);
     }
     return 0;
 }

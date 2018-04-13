@@ -1,0 +1,6 @@
+Declaracion de variable. Cant de elemento reservado en memoria. Ej. 15 elementos son 14 char + \0.
+\0 delimitador que se agrega automaticamente en una cadena de caracteres.
+
+Tarea
+declarar 3 variables. char nombre[] char apellido[] char apellidoYNombre[] (definir cant. de caracteres)
+usuario ingresa apellido, ingresa el nombre y en la variable apellido y nombre deberìa quedar apellidoYNombre = "Apellido, Nombre".
