@@ -5,3 +5,15 @@
 
 1523620664 d:\lab1 temp\clase 6\clase 6 c\vectores.h
 
+1524138585 source:d:\lab 1 temp\clase 6\clase 6 c\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"vectores.h"
+
+1524138585 d:\lab 1 temp\clase 6\clase 6 c\vectores.h
+
+1524138585 source:d:\lab 1 temp\clase 6\clase 6 c\vectores.c
+	<stdio.h>
+	"vectores.h"
+

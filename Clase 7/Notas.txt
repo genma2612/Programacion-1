@@ -1,0 +1,17 @@
+Comandos Git Bash:
+	git init  // inicia nuevo repositorio.
+	git clone // clona repositorio.
+	git status // scan unstaged files
+	git add . //  agrega todos los archivos
+	git add "nombre de archivo" // agrega archivo
+	git commit -m "mensaje" // commit sin mensaje por consola unix.
+	git push origin // Push
+	
+Vectores paralelos:
+
+Los datos comparten el subindice para ser identificados.
+
+Matriz: Vector en dos dimensiones. vector[3][30] = matriz 3x30. 3 nombres de 29 caracteres. 
+
+Tarea: Funcion que reciba el vector de legajos, el tamaño del vector de legajos y que reciba un numero de legajo. 
+Que devuelva el ìndice de legajo, si es que lo encuentra, o -1 si no.
