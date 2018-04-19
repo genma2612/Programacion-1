@@ -48,12 +48,13 @@ float calculoPromedio(int n1, int n2)
 
 void mostrarDatos(int legajo[], char nombre[][30], int n1[], int n2[], float promedio[])
 {
+    int i;
     for(i=0; i < 3;i++)
     {
         printf("\nLegajo: %d\n", legajo[i]);
         printf("Nombre: %s\n", nombre[i]);
-        printf("Nota 1: %d\n", nota1[i]);
-        printf("Nota 2: %d\n", nota2[i]);
+        printf("Nota 1: %d\n", n1[i]);
+        printf("Nota 2: %d\n", n2[i]);
         printf("Promedio: %.1f\n", promedio[i]);
     }
 }
