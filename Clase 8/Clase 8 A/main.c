@@ -3,9 +3,8 @@
 #include <string.h>
 #define TAM 3
 
-float calculoPromedio(int, int);
 void mostrarDatos(int[], char[][30], int[], int[], float[]);
-int buscarLegajo(int[], int, int);
+float calcularPromedio(int, int);
 
 int main()
 {
@@ -15,15 +14,13 @@ int main()
     int nota2[TAM]={2, 8, 8};
     float promedio[TAM];
     float auxProm;
-    int aBuscar;
+    int auxInt;
+    char auxNombre[30];
     int i;
     int j;
-    int auxInt;
-    char auxNombre[1][30];
     for(i=0; i < 3;i++)
     {
-        promedio[i] = calculoPromedio(nota1[i], nota2[i]);
-        printf("%.1f\n", promedio[i]);
+        promedio[i] = calcularPromedio(nota1[i], nota2[i]);
     }
     for(i=0;i<TAM-1; i++)
     {
@@ -31,9 +28,9 @@ int main()
         {
             if(stricmp(nombre[i], nombre[j]) > 0)
             {
-                strcpy(auxNombre[1], nombre[i]);
+                strcpy(auxNombre, nombre[i]);
                 strcpy(nombre[i], nombre[j]);
-                strcpy(nombre[j], auxNombre[1]);
+                strcpy(nombre[j], auxNombre);
 
                 auxInt = legajo[i];
                 legajo[i] = legajo[j];
@@ -50,29 +47,19 @@ int main()
                 auxProm = promedio[i];
                 promedio[i] = promedio[j];
                 promedio[j] = auxProm;
-
             }
         }
     }
-    printf("\nDatos ingresados\n");
+    printf("Datos ingresados\n");
     mostrarDatos(legajo, nombre, nota1, nota2, promedio);
-    aBuscar = buscarLegajo(legajo, TAM, 22);
-    if(aBuscar > -1)
-    {
-        printf("\nSe encontro el legajo en el subindice %d, pertenece a %s.\n", aBuscar, nombre[aBuscar]);
-    }
-    else
-    {
-        printf("\nEl numero de legajo no se encuentra en el sistema\n");
-    }
     return 0;
 }
 
-float calculoPromedio(int n1, int n2)
+float calcularPromedio(int n1, int n2)
 {
-    float promedio;
-    promedio = (float)(n1 + n2) / 2;
-    return promedio;
+    float prom;
+    prom = (float)(n1+n2)/2;
+    return prom;
 }
 
 void mostrarDatos(int legajo[], char nombre[][30], int n1[], int n2[], float promedio[])
@@ -87,21 +74,5 @@ void mostrarDatos(int legajo[], char nombre[][30], int n1[], int n2[], float pro
         printf("Promedio: %.1f\n", promedio[i]);
     }
 }
-
-int buscarLegajo(int legajo[], int size, int aBuscar)
-{
-    int index = -1;
-    int i;
-    for(i=0; i < size;i++)
-    {
-        if(legajo[i] == aBuscar)
-        {
-            index = i;
-            break;
-        }
-    }
-    return index;
-}
-
 
 

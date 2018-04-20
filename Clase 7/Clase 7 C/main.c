@@ -33,7 +33,7 @@ int main()
     aBuscar = buscarLegajo(legajo, 3, 22);
     if(aBuscar > -1)
     {
-        printf("\nSe encontro el legajo en el subindice %d\n", aBuscar);
+        printf("\nSe encontro el legajo en el subindice %d, pertenece a %s.\n", aBuscar, nombre[aBuscar]);
     }
     else
     {
