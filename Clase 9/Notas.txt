@@ -1,0 +1,36 @@
+Composicion: Construir datos a partir de otros datos.
+Grupos repetitivos: En una estructura anidada como en el siguiente ejercicio, se ocasiona
+un problema denominado "Redundancia".
+Cardinalidad: Cuantas instancias de una cosa se corresponden con cuantas instancias de otra cosa.
+Ej. Un usuario, una serie. Una serie, muchos usuarios.
+DER Diagrama de entidad relaciòn.
+sizeof()
+
+Ejercicio:
+
+eUsuario
+
+int  idusuario    (Primal Key)
+char nombre[50]
+int  estado						
+eSerie serie  // Redundancia
+int idDeSerie // (Foreign Key) Primal Key de otra trabla. Puede repetirse ya que màs de un usuario puede ver la misma serie.
+
+eSerie
+
+int idSerie       (Primal Key)
+char nombre[50]
+char genero[50]
+int cantTemp
+int estado
+
+
+1 BB 	Policial 5
+2 GoT   Fantasia 9
+3 ST	Terror   2
+
+11 - Pedro - 1 | 1 - BB - Policial - 5 - 1 // Redundancia
+12 - Luis  - 1 | 1 - BB - Policial - 5 - 1 // Redundancia
+13 - Alex  - 1 | 1 - BB - Policial - 5 - 1 // Redundancia
+
+11 - Pedro - 1 | idSerie
