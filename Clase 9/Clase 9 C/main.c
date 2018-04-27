@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define cant 5
 
 
 typedef struct
@@ -10,15 +11,15 @@ typedef struct
     float promedio;
 }eAlumno;
 
-void mostrar(eAlumno unAlumno);
-void mostrarListaAlumnos(eAlumno[], int);
+//void mostrar(eAlumno unAlumno); For para imprimir el array de estructura.
+void mostrarListaAlumnos(eAlumno[], int); //Funcion para imprimir array de estructura.
 
 int main()
 {
     int i;
-    eAlumno clase[5];
+    eAlumno clase[cant];
 
-    for(i=0; i<5; i++)
+    for(i=0; i<cant; i++)
     {
         printf("Ingrese legajo\n");
         scanf("%d", &clase[i].legajo);
@@ -28,8 +29,8 @@ int main()
         printf("Ingrese promedio\n");
         scanf("%f", &clase[i].promedio);
     }
-    mostrarListaAlumnos(clase, 5);
-    /*for(i=0; i<5; i++)
+    mostrarListaAlumnos(clase, cant);
+    /*for(i=0; i<5; i++) For para imprimir el array de estructura.
     {
         mostrar(clase[i]);
     }*/
@@ -37,21 +38,20 @@ int main()
     return 0;
 }
 
-void mostrar(eAlumno unAlumno)
+/*void mostrar(eAlumno unAlumno) For para imprimir el array de estructura.
 {
     printf("%d | %s | %.1f\n",unAlumno.legajo, unAlumno.nombre, unAlumno.promedio);
-}
+}*/
 
-void mostrarListaAlumnos(eAlumno clase[], int 5)
+void mostrarListaAlumnos(eAlumno clase[], int T)
 {
     int i;
-    for(i=0; i<5; i++)
+    for(i=0; i<T; i++)
     {
-        if(clase[i].estado != 0)
+        if(clase[i].legajo != 0)
         {
-            printf("Legajo: %d | %s | Promedio: \n", clase[i].legajo, clase[i].nombre, clase[i].promedio);
+            printf("Legajo: %d | %s | Promedio: %0.1f\n", clase[i].legajo, clase[i].nombre, clase[i].promedio);
         }
     }
     printf("\n");
 }
-
