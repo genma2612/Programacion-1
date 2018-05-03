@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1525350976 source:d:\lab 1 temp\clase 11\practica parcial 1\lib.c
+
+1525355381 source:d:\lab 1 temp\clase 11\practica parcial 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"usuarios.h"
+
+1525354868 d:\lab 1 temp\clase 11\practica parcial 1\usuarios.h
+	<stdio.h>
+	<stdlib.h>
+
+1525351355 source:d:\lab 1 temp\clase 11\practica parcial 1\productos.c
+
+1525355566 source:d:\lab 1 temp\clase 11\practica parcial 1\usuarios.c
+	<string.h>
+	"usuarios.h"
+
