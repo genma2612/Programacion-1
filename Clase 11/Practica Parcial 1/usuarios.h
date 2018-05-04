@@ -6,8 +6,11 @@
 
 typedef struct
 {
+    char nombre[20];
+    char apellido[20];
     char usuario[20];
-    char nombre[50];
+    char password[20];
+    char telefono[10];
     int id;
     int estado;
 }eUsuarios;
@@ -21,3 +24,11 @@ int eUsu_alta(eUsuarios[],int);
 int eUsu_siguienteId(eUsuarios[] ,int);
 
 int eUsu_buscarLugarLibre(eUsuarios[],int);
+
+int eUsu_modif(char mensaje[], char menu[], eUsuarios[], int);
+
+int buscarPorId(eUsuarios[],int, int);
+
+int eUsu_baja(char mensaje[], eUsuarios[],int);
+
+int mostrarListado(eUsuarios[], int);

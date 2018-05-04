@@ -7,16 +7,29 @@
 #define LIBRE 0
 #define OCUPADO 1
 
+void imprimirResultado(int valor, char error[], char sucess[]);
+
 int main()
 {
     int auxiliar;
+
+    // Creación, inicialización y hardcodeo del vector usuarios.
     eUsuarios usuarios[CANT_USUARIOS];
     auxiliar = eUsu_init(usuarios,CANT_USUARIOS);
     auxiliar = eUsu_HC(usuarios, CANT_USUARIOS);
 
     int opcion=0;
+    char menuModificacionUsuario[] =
+        "Que campo desea modificar?\
+        \n1-Nombre\
+        \n2-Apellido\
+        \n3-Usuario\
+        \n4-Password\
+        \n5-Telefono\
+        \n6-Finalizar\
+        \nIngrese una opcion: ";
     char menuPrincipalMensaje[] =
-                "1-Alta de usuario.\
+        "1-Alta de usuario.\
                  \n2-Modificar datos del usuario.\
                  \n3-Baja del usuario.\
                  \n4-Publicar producto.\
@@ -28,41 +41,43 @@ int main()
                  \n10-Listar usuarios.\
                  \n11-Salir\
                  \nIngrese una opcion: ";
-
     do
     {
         printf("%s", menuPrincipalMensaje);
         scanf("%d", &opcion);
-        //clearScreen();
-        //int opcion=0;
 
         switch(opcion)
         {
-        case 1: // ALTA ABONADO
+        case 1:
             auxiliar = eUsu_alta(usuarios, CANT_USUARIOS);
+            imprimirResultado(auxiliar, "\nNo quedan espacios disponibles\n", "\nUsuario dado de alta correctamente\n\n");
             break;
-        case 2: // MODIFICAR ABONADO
+        case 2:
+            auxiliar = eUsu_modif("Ingrese el ID del usuario a modificar ", menuModificacionUsuario, usuarios, CANT_USUARIOS);
+            imprimirResultado(auxiliar, "\nNo se pudo modificar\n", "\nUsuario modificado correctamente\n\n");
+
 
             break;
-        case 3: // BAJA ABONADO
+        case 3:
+            auxiliar = eUsu_baja("Ingrese el ID del usuario a dar de baja", usuarios, CANT_USUARIOS);
+            imprimirResultado(auxiliar, "\nNo se pudo dar de baja.\n", "\nUsuario dado de baja correctamente\n\n");
 
             break;
-        case 4: // NUEVA LLAMADA
+        case 4:
 
             break;
-        case 5: // FINALIZAR LLAMADA
+        case 5:
+            auxiliar = mostrarListado(usuarios, CANT_USUARIOS);
 
             break;
-        case 6: // INFORMES
+        case 6:
 
             break;
-        case 7: // LISTAR LLAMADAS
+        case 7:
 
-            //pause();
             break;
-        case 8: // LISTAR ABONADOS
+        case 8:
 
-            //pause();
             break;
         case 9:
 
@@ -80,7 +95,19 @@ int main()
             break;
         }
 
-    }while(opcion != 11);
-
+    }
+    while(opcion != 11);
     return 0;
+}
+
+void imprimirResultado(int valor, char error[], char sucess[])
+{
+    if(valor == 0)
+    {
+        printf("%s",error);
+    }
+    else
+    {
+        printf("%s",sucess);
+    }
 }
