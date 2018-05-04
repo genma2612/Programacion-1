@@ -58,12 +58,21 @@ int eUsu_alta(eUsuarios listado[],int limite)
         if(indice >= 0)
         {
             id = eUsu_siguienteId(listado,limite);
-            printf("Ingrese nombre:\n");
+            printf("Ingrese nombre: \n");
             fflush(stdin);
             gets(listado[indice].nombre);
-            printf("Ingrese usuario:\n");
+            printf("Ingrese apellido: \n");
+            fflush(stdin);
+            gets(listado[indice].apellido);
+            printf("Ingrese usuario: \n");
             fflush(stdin);
             gets(listado[indice].usuario);
+            printf("Ingrese password: \n");
+            fflush(stdin);
+            gets(listado[indice].password);
+            printf("Ingrese telefono: \n");
+            fflush(stdin);
+            gets(listado[indice].telefono);
             listado[indice].id = id;
             listado[indice].estado = OCUPADO;
             retorno = 1;
@@ -136,31 +145,31 @@ int eUsu_modif(char mensaje[], char menu[], eUsuarios usuarios[], int limite)
     switch(opcion)
     {
     case 1:
-        printf("Ingrese el nuevo nombre:\n");
+        printf("Ingrese el nuevo nombre: \n");
         fflush(stdin);
         gets(usuarios[indice].nombre);
 
         break;
     case 2:
-        printf("Ingrese el nuevo apellido:\n");
+        printf("Ingrese el nuevo apellido: \n");
         fflush(stdin);
         gets(usuarios[indice].apellido);
 
         break;
     case 3:
-        printf("Ingrese el nuevo usuario:\n");
+        printf("Ingrese el nuevo usuario: \n");
         fflush(stdin);
         gets(usuarios[indice].usuario);
 
         break;
     case 4:
-        printf("Ingrese el nuevo password:\n");
+        printf("Ingrese el nuevo password: \n");
         fflush(stdin);
         gets(usuarios[indice].password);
 
         break;
     case 5:
-        printf("Ingrese el nuevo telefono:\n");
+        printf("Ingrese el nuevo telefono: \n");
         fflush(stdin);
         gets(usuarios[indice].telefono);
 

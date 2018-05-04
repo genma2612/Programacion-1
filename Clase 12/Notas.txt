@@ -1,0 +1,8 @@
+Ejercicio 1er Parcial.
+
+int isAlpha (char)
+int isDigit (char)
+int isSpace (char)
+
+atoi(x) convierte string en entero
+

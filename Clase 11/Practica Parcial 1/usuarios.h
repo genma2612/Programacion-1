@@ -1,5 +1,8 @@
+#ifndef __included_usuarios_h
+#define __included_usuarios_h
 #include <stdio.h>
 #include <stdlib.h>
+#include "productos.h"
 
 #define CANT_USUARIOS 100
 #define CANT_PRODUCTOS 1000
@@ -31,4 +34,7 @@ int buscarPorId(eUsuarios[],int, int);
 
 int eUsu_baja(char mensaje[], eUsuarios[],int);
 
-int mostrarListado(eUsuarios[], int);
+int mostrarListado(eUsuarios[], int, eProducto[], int);
+
+
+#endif;

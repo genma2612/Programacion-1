@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "usuarios.h"
+#include "productos.h"
 
 #define CANT_USUARIOS 100
 #define CANT_PRODUCTOS 1000
@@ -17,6 +18,10 @@ int main()
     eUsuarios usuarios[CANT_USUARIOS];
     auxiliar = eUsu_init(usuarios,CANT_USUARIOS);
     auxiliar = eUsu_HC(usuarios, CANT_USUARIOS);
+
+    eProducto productos[CANT_PRODUCTOS];
+    auxiliar = eProd_init(productos, CANT_PRODUCTOS);
+    auxiliar = eProd_HC(productos, CANT_PRODUCTOS);
 
     int opcion=0;
     char menuModificacionUsuario[] =
@@ -64,11 +69,11 @@ int main()
 
             break;
         case 4:
+            auxiliar = eProd_alta(productos, CANT_PRODUCTOS, usuarios, CANT_USUARIOS);
 
             break;
         case 5:
-            auxiliar = mostrarListado(usuarios, CANT_USUARIOS);
-
+            auxiliar = mostrarListado(usuarios, CANT_USUARIOS, productos, CANT_PRODUCTOS);
             break;
         case 6:
 
