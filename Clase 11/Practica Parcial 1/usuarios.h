@@ -1,11 +1,7 @@
-#ifndef __included_usuarios_h
-#define __included_usuarios_h
-#include <stdio.h>
-#include <stdlib.h>
-#include "productos.h"
-
 #define CANT_USUARIOS 100
 #define CANT_PRODUCTOS 1000
+#define LIBRE 0
+#define OCUPADO 1
 
 typedef struct
 {
@@ -22,19 +18,5 @@ int eUsu_init(eUsuarios[],int);
 
 int eUsu_HC(eUsuarios[],int);
 
-int eUsu_alta(eUsuarios[],int);
-
-int eUsu_siguienteId(eUsuarios[] ,int);
-
-int eUsu_buscarLugarLibre(eUsuarios[],int);
-
-int eUsu_modif(char mensaje[], char menu[], eUsuarios[], int);
-
-int buscarPorId(eUsuarios[],int, int);
-
-int eUsu_baja(char mensaje[], eUsuarios[],int);
-
-int mostrarListado(eUsuarios[], int, eProducto[], int);
 
 
-#endif;

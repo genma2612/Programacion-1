@@ -1,11 +1,7 @@
-#ifndef __included_productos_h
-#define __included_productos_h
-#include <stdio.h>
-#include <stdlib.h>
-#include "usuarios.h"
-
 #define CANT_USUARIOS 100
 #define CANT_PRODUCTOS 1000
+#define LIBRE 0
+#define OCUPADO 1
 
 typedef struct
 {
@@ -22,18 +18,4 @@ int eProd_init(eProducto[],int);
 
 int eProd_HC(eProducto[],int);
 
-int eProd_alta(eProducto[], int, eUsuarios[], int);
 
-int eProd_siguienteId(eProducto[] ,int);
-
-int eProd_buscarLugarLibre(eProducto[],int);
-
-int eProd_modif(char mensaje[], char menu[], eProducto[], int);
-
-int buscarPorIdProducto(eProducto[],int, int);
-
-int eProd_baja(char mensaje[], eProducto[],int);
-
-int mostrarListado(eProducto[], int);
-
-#endif;

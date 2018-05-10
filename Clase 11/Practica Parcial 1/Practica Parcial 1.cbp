@@ -42,6 +42,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="productos.h" />
+		<Unit filename="tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tools.h" />
 		<Unit filename="usuarios.c">
 			<Option compilerVar="CC" />
 		</Unit>
