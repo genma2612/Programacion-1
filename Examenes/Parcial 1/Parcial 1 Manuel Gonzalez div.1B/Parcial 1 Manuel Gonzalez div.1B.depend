@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1525964862 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.c
+	<stdio.h>
+	<stdlib.h>
+	"lib.h"
+	"tools.h"
+	"time.h"
+
+1525964432 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.h
+	"propietarios.h"
+	"automovil.h"
+
+1525957534 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\propietarios.h
+
+1525953125 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\tools.h
+
+1525964995 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\main.c
+	<stdio.h>
+	<stdlib.h>
+	"tools.h"
+	"lib.h"
+
+1525957586 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\propietarios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"propietarios.h"
+
+1525953125 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+
+1525963892 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\automovil.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"automovil.h"
+
+1525963858 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\automovil.h
+
