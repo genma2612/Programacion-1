@@ -20,7 +20,7 @@
 	"usuarios.h"
 	"productos.h"
 
-1525943329 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 11\practica parcial 1\lib.c
+1525946422 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 11\practica parcial 1\lib.c
 	<stdio.h>
 	<stdlib.h>
 	"lib.h"
@@ -40,7 +40,7 @@
 
 1525932734 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 11\practica parcial 1\usuarios.h
 
-1525943422 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 11\practica parcial 1\main.c
+1525944177 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 11\practica parcial 1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"lib.h"
@@ -56,9 +56,9 @@
 	"usuarios.h"
 	"productos.h"
 
-1525936815 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 11\practica parcial 1\tools.h
+1525945865 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 11\practica parcial 1\tools.h
 
-1525936818 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 11\practica parcial 1\tools.c
+1525946267 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\clase 11\practica parcial 1\tools.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

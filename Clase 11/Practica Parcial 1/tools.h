@@ -53,7 +53,6 @@ char ingresarChar(char mensaje[]);
  */
 void ingresarString(char mensaje[],char input[]);
 
-
 /** \brief Solicita un texto que esté conformado sólo por letras o " " y lo devuelve
  *
  * \param mensajeAMostrar[] char Mensaje a mostrar.
@@ -65,6 +64,45 @@ void ingresarString(char mensaje[],char input[]);
  *
  */
 void ingresarStringValida(char mensajeAMostrar[], char mensajeError[], char mensajeErrorExced[], char input[], int largoMax);
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+/** \brief Solicita un password conformado por numeros, letras y/o caracteres especiales y lo devuelve
+ *
+ * \param mensajeAMostrar[] char Mensaje a mostrar.
+ * \param mensajeError[] char Mensaje de error (Caracteres no permitidos)
+ * \param mensajeErrorExced[] char Mensaje de error (Largo permitido excedido)
+ * \param input[] char El string donde se guardará el texto validado.
+ * \param maxLenght int El parametro de longitud permitida.
+ * \return void
+ *
+ */
+void ingresarStringValidaPass(char mensajeAMostrar[], char mensajeError[], char mensajeErrorExced[], char input[], int largoMax);
+
+/** \brief Solicita un telefono que esté conformado sólo por numeros y un guion (-) y lo devuelve
+ *
+ * \param mensajeAMostrar[] char Mensaje a mostrar.
+ * \param mensajeError[] char Mensaje de error (Caracteres no permitidos)
+ * \param mensajeErrorExced[] char Mensaje de error (Largo permitido excedido)
+ * \param input[] char El string donde se guardará el texto validado.
+ * \param maxLenght int El parametro de longitud permitida.
+ * \return void
+ *
+ */
+void ingresarStringValidaTelefono(char mensajeAMostrar[], char mensajeError[], char mensajeErrorExced[], char input[], int largoMax);
+
+/** \brief Solicita un texto que esté conformado sólo por letras y/o numeros y lo devuelve
+ *
+ * \param mensajeAMostrar[] char Mensaje a mostrar.
+ * \param mensajeError[] char Mensaje de error (Caracteres no permitidos)
+ * \param mensajeErrorExced[] char Mensaje de error (Largo permitido excedido)
+ * \param input[] char El string donde se guardará el texto validado.
+ * \param maxLenght int El parametro de longitud permitida.
+ * \return void
+ *
+ */
+void ingresarStringValidaAlfa(char mensajeAMostrar[], char mensajeError[], char mensajeErrorExced[], char input[], int largoMax);
+////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * \brief Verifica si el valor recibido es numérico
@@ -97,7 +135,16 @@ int esSoloLetras(char str[]);
  *
  */
 int esAlfaNumerico(char str[]);
+///////////////////////////////////////////////////////////////////////
 
+/**
+ * \brief Verifica si el valor recibido contiene letras, números y/o caracteres especiales.
+ * \param str Array con la cadena a ser analizada
+ * \return 1 si contiene solo espacio o letras y números, y 0 si no lo es
+ *
+ */
+int esPass(char str[]);
+//////////////////////////////////////////////////////////////////////
 /**
  * \brief Verifica si el valor recibido contiene solo números, + y -
  * \param str Array con la cadena a ser analizada
@@ -129,6 +176,35 @@ int ingresarStringNumerosFlotantes(char mensaje[],char input[]);
  * \return 1 si el texto contiene solo letras
  */
 int ingresarStringLetras(char mensaje[],char input[]);
+
+/////////////////////////////////////////////////////////////////////
+
+/**
+ * \brief Solicita un password al usuario y lo devuelve
+ * \param mensaje Es el mensaje a ser mostrado
+ * \param input Array donde se cargará el texto ingresado
+ * \return 1 si el texto contiene solo letras
+ */
+int ingresarStringPass(char mensaje[],char input[]);
+
+/**
+ * \brief Solicita un telefono al usuario y lo devuelve
+ * \param mensaje Es el mensaje a ser mostrado
+ * \param input Array donde se cargará el texto ingresado
+ * \return 1 si el texto contiene solo letras
+ */
+int ingresarStringTelefono(char mensaje[],char input[]);
+
+/**
+ * \brief Solicita un texto alfanumerico al usuario y lo devuelve
+ * \param mensaje Es el mensaje a ser mostrado
+ * \param input Array donde se cargará el texto ingresado
+ * \return 1 si el texto contiene solo letras
+ */
+int ingresarStringAlfa(char mensaje[],char input[]);
+
+/////////////////////////////////////////////////////////////////////
+
 
 /** \brief Limpia el stdin, similar a fflush
  *

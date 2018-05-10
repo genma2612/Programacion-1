@@ -85,7 +85,6 @@ int main()
             break;
         case 9:
             auxiliar = listarPublicaciones(productos, usuarios);
-            //mensajeRetorno(auxiliar, "", "", "");
             break;
         case 10:
             auxiliar = mostrarListado(usuarios, productos);

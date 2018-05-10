@@ -102,6 +102,75 @@ void ingresarStringValida(char mensajeAMostrar[], char mensajeError[], char mens
     }while(auxInt == 0);
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void ingresarStringValidaPass(char mensajeAMostrar[], char mensajeError[], char mensajeErrorExced[], char input[], int largoMax)
+{
+    int auxInt;
+    char buffer[1024];
+    do
+    {
+        auxInt = ingresarStringPass(mensajeAMostrar,buffer);
+        if(auxInt == 0)
+        {
+            printf ("%s",mensajeError);
+            continue;
+        }
+        if(strlen(buffer) >= largoMax)
+        {
+            printf ("%s",mensajeErrorExced);
+            auxInt = 0;
+            continue;
+        }
+        strcpy(input,buffer);
+    }while(auxInt == 0);
+}
+
+void ingresarStringValidaTelefono(char mensajeAMostrar[], char mensajeError[], char mensajeErrorExced[], char input[], int largoMax)
+{
+    int auxInt;
+    char buffer[1024];
+    do
+    {
+        auxInt = ingresarStringTelefono(mensajeAMostrar,buffer);
+        if(auxInt == 0)
+        {
+            printf ("%s",mensajeError);
+            continue;
+        }
+        if(strlen(buffer) >= largoMax)
+        {
+            printf ("%s",mensajeErrorExced);
+            auxInt = 0;
+            continue;
+        }
+        strcpy(input,buffer);
+    }while(auxInt == 0);
+}
+
+void ingresarStringValidaAlfa(char mensajeAMostrar[], char mensajeError[], char mensajeErrorExced[], char input[], int largoMax)
+{
+    int auxInt;
+    char buffer[1024];
+    do
+    {
+        auxInt = ingresarStringAlfa(mensajeAMostrar,buffer);
+        if(auxInt == 0)
+        {
+            printf ("%s",mensajeError);
+            continue;
+        }
+        if(strlen(buffer) >= largoMax)
+        {
+            printf ("%s",mensajeErrorExced);
+            auxInt = 0;
+            continue;
+        }
+        strcpy(input,buffer);
+    }while(auxInt == 0);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 int esNumerico(char str[])
 {
    int i=0;
@@ -171,6 +240,18 @@ int esAlfaNumerico(char str[])
    return 1;
 }
 
+int esPass(char str[])
+{
+   int i=0;
+   while(str[i] != '\0')
+   {
+       if((str[i] != ' ') && (str[i] < '!' || str[i] > '~'))
+           return 0;
+       i++;
+   }
+   return 1;
+}
+
 int esTelefono(char str[])
 {
    int i=0;
@@ -218,6 +299,42 @@ int ingresarStringLetras(char mensaje[],char input[])
     char aux[256];
     ingresarString(mensaje,aux);
     if(esSoloLetras(aux))
+    {
+        strcpy(input,aux);
+        return 1;
+    }
+    return 0;
+}
+
+int ingresarStringPass(char mensaje[],char input[])
+{
+    char aux[256];
+    ingresarString(mensaje,aux);
+    if(esPass(aux))
+    {
+        strcpy(input,aux);
+        return 1;
+    }
+    return 0;
+}
+
+int ingresarStringTelefono(char mensaje[],char input[])
+{
+    char aux[256];
+    ingresarString(mensaje,aux);
+    if(esTelefono(aux))
+    {
+        strcpy(input,aux);
+        return 1;
+    }
+    return 0;
+}
+
+int ingresarStringAlfa(char mensaje[],char input[])
+{
+    char aux[256];
+    ingresarString(mensaje,aux);
+    if(esAlfaNumerico(aux))
     {
         strcpy(input,aux);
         return 1;

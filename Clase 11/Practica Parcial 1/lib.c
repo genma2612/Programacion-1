@@ -22,7 +22,14 @@ int eUsu_alta(eUsuarios listado[],int limite)
             id = eUsu_siguienteId(listado,limite);
             ingresarStringValida("Ingrese el nombre: ", "El nombre debe contener solo letras.\n", "La cantidad max. es de 20 caracteres.\n", listado[indice].nombre, 21);
             ingresarStringValida("Ingrese el apellido: ", "El apellido debe contener solo letras.\n", "La cantidad max. es de 20 caracteres.\n", listado[indice].apellido, 21);
-            printf("Ingrese usuario: \n");
+            ingresarStringValidaAlfa("Ingrese el usuario: ", "Solo puede contener numeros y letras\n", "La cantidad max. es de 20 caracteres\n", listado[indice].usuario, 21);
+            ingresarStringValidaPass("Ingrese el password: ", "Solo puede contener numeros, letras y caracteres\n", "La cantidad max. es de 20 caracteres\n", listado[indice].password, 21);
+            ingresarStringValidaTelefono("Ingrese el telefono. Debe ser de 8 digitos con un guion a la mitad. Ej. XXXX-XXXX: ", "Solo puede contener numeros y un guion\n", "La cantidad max. es de 9 caracteres\n", listado[indice].telefono, 10);
+
+
+
+
+            /*printf("Ingrese usuario: \n");
             fflush(stdin);
             gets(listado[indice].usuario);
             printf("Ingrese password: \n");
@@ -30,7 +37,7 @@ int eUsu_alta(eUsuarios listado[],int limite)
             gets(listado[indice].password);
             printf("Ingrese telefono: \n");
             fflush(stdin);
-            gets(listado[indice].telefono);
+            gets(listado[indice].telefono);*/
             listado[indice].id = id;
             listado[indice].estado = OCUPADO;
             retorno = 1;
