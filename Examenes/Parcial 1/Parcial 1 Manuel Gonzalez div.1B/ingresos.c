@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "automovil.h"
+#include "ingresos.h"
 #define CANT_PROPIETARIOS 20
 #define LIBRE 0
 #define OCUPADO 1
@@ -10,10 +10,10 @@ int eIngreso_init(eIngreso ingresos[])
 {
     int retorno = -1;
     int i;
-    if(CANT_PROPIETARIOS > 0 && ingresos != NULL)
+    if(100 > 0 && ingresos != NULL)
     {
         retorno = 0;
-        for(i=0; i<CANT_PROPIETARIOS; i++)
+        for(i=0; i<100; i++)
         {
             ingresos[i].estado = LIBRE;
             ingresos[i].marca = -1;
@@ -32,7 +32,7 @@ int eIngreso_HC(eIngreso ingresos[])
     int propietario[]= {2,1,2,1,3,3,4,1,4,3};
     int retorno = -1;
     int i;
-    if(CANT_PROPIETARIOS > 0 && ingresos != NULL)
+    if(100 > 0 && ingresos != NULL)
     {
         retorno = 0;
         for(i=0; i<10; i++)

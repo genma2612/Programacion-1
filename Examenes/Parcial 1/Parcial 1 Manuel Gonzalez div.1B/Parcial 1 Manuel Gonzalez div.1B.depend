@@ -40,3 +40,62 @@
 
 1525963858 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\automovil.h
 
+1525999540 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\automovil.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"automovil.h"
+
+1525999540 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\automovil.h
+
+1526521543 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lib.h"
+	"tools.h"
+	"time.h"
+
+1526522848 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.h
+	"propietarios.h"
+	"ingresos.h"
+	"egresos.h"
+
+1525999541 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\propietarios.h
+
+1525999541 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\tools.h
+
+1526522848 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\main.c
+	<stdio.h>
+	<stdlib.h>
+	"tools.h"
+	"lib.h"
+
+1525999541 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\propietarios.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"propietarios.h"
+
+1525999541 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+
+1525999540 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\ingresos.h
+
+1526500048 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\ingresos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ingresos.h"
+
+1526523241 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\egresos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"egresos.h"
+
+1526498540 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\egresos.h
+

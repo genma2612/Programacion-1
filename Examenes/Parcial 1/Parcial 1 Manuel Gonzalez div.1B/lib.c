@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "lib.h"
 #include "tools.h"
 #include "time.h"
@@ -29,6 +30,7 @@ int ePro_alta(ePropietarios listado[])
             retorno = 0;
         }
     }
+    clearScreen();
     return retorno;
 }
 
@@ -71,7 +73,7 @@ int ePro_siguienteId(ePropietarios listado[])
     return retorno+1;
 }
 
-int ePro_modif(char mensaje[], ePropietarios listado[])
+int ePro_modif(char mensaje[], ePropietarios listado[], eIngreso ingresos[])
 {
     int retorno = -1;
     int idaux;
@@ -94,6 +96,7 @@ int ePro_modif(char mensaje[], ePropietarios listado[])
         retorno = 1;
         ingresarStringValidaAlfa("Ingrese la nueva tarjeta: ", "Solo puede contener numeros.\n", "La cantidad max. es de 20 caracteres\n", listado[indice].tarjeta, 21);
     }
+    clearScreen();
     return retorno;
 }
 
@@ -116,11 +119,12 @@ int buscarPorId(ePropietarios listado[], int id)
     return retorno;
 }
 
-int ePro_baja(char mensaje[], ePropietarios listado[])
+int ePro_baja(char mensaje[], ePropietarios listado[], eIngreso ingresos[], eEgreso egresos[])
 {
     int retorno = -1;
     int indice;
     int idaux;
+    float deuda=0;
     idaux = ingresarIntValido("Mostrar listado de ID's? 1-Si 2-No \n", "Opcion ingresada incorrecta. Mostrar listado de ID's? 1-Si 2-No \n", 1, 2);
     if(idaux == 1)
     {
@@ -132,14 +136,51 @@ int ePro_baja(char mensaje[], ePropietarios listado[])
     {
         return retorno;
     }
-    retorno = 0;
     idaux = ingresarIntValido("Confirmar la baja 1-Si 2-No \n", "Opcion ingresada incorrecta. Confirmar la baja? 1-Si 2-No \n", 1, 2);
-    if(idaux == 1)
+    if(idaux == 2)
     {
-        retorno = 1;
-        listado[indice].estado = LIBRE;
+        return retorno;
     }
+    listado[indice].estado = LIBRE;
+    deuda = liquidacion(listado, ingresos, egresos, listado[indice].idPropietario);
+    if(!deuda)
+    {
+        retorno = 0;
+        return retorno;
+    }
+    retorno = 1;
+    clearScreen();
+    printf("%s %s fue dado de baja. El importe a abonar es: %.2f\n", listado[indice].nombre, listado[indice].apellido, deuda);
     return retorno;
+}
+
+float liquidacion(ePropietarios listado[],eIngreso ingresos[],eEgreso egresos[], int idPropietario)
+{
+    int i;
+    int j;
+    float importe=0;
+    float total=0;
+    for(i=0; i<100; i++)
+    {
+        if(ingresos[i].estado == OCUPADO && ingresos[i].idPropietario == idPropietario)
+        {
+            for(j=0; j<100; j++)
+            {
+                if(egresos[j].estado == LIBRE)
+                {
+                    ingresos[i].estado = LIBRE;
+                    egresos[j].estado = OCUPADO;
+                    egresos[j].idPropietario = ingresos[i].idPropietario;
+                    egresos[j].marca = ingresos[i].marca;
+                    importe = calcularImporte(egresos, ingresos[i].marca);
+                    egresos[j].importe = importe;
+                    total = total + importe;
+                    break;
+                }
+            }
+        }
+    }
+    return total;
 }
 
 int ePro_mostrarListado(ePropietarios listado[])
@@ -160,6 +201,64 @@ int ePro_mostrarListado(ePropietarios listado[])
     }
     return retorno;
 }
+
+/*
+int ePro_mostrarListado(ePropietarios listado[], eIngreso ingresos[])
+{
+    int retorno = 0;
+    int i;
+    int j;
+    char marcas[5][15]= {" ","Alpha Romeo","Ferrari","Audi","otro"};
+    char auxiliar[20];
+    int auxInt;
+    if(CANT_PROPIETARIOS > 0 && listado != NULL)
+    {
+        for(i=0; i<19; i++)
+        {
+            for(j=i+1; j<CANT_PROPIETARIOS; j++)
+            {
+                if(strcmp(ingresos[i].patente, ingresos[j].patente) < 0)
+                {
+                    strcpy(auxiliar, ingresos[i].patente);
+                    strcpy(ingresos[i].patente, ingresos[j].patente);
+                    strcpy(ingresos[j].patente, auxiliar);
+
+                    auxiliar = ingresos[i].idIngreso;
+                    ingresos[i].idIngreso = ingresos[j].idIngreso;
+                    ingresos[j].idIngreso = auxiliar;
+
+                    auxiliar = ingresos[i].idPropietario;
+                    ingresos[i].idPropietario = ingresos[j].idPropietario;
+                    ingresos[j].idPropietario = auxiliar;
+
+                    auxiliar = ingresos[i].marca;
+                    ingresos[i].marca = ingresos[j].marca;
+                    ingresos[j].marca = auxiliar;
+                }
+            }
+        }
+
+        printf("PATENTE  MARCA ID PROP. NOMBRE  APELLIDO  DIRECCION   TARJETA\n");
+
+        for(i=0; i<100; i++)
+        {
+            printf("%-10.15s %10s ", ingresos[i].patente, marcas[ingresos[i]]);
+            for(j=0; j<CANT_PROPIETARIOS; j++)
+            {
+                if(listado[i].estado==OCUPADO && ingresos[i].idPropietario == listado[j].idPropietario)
+                {
+                    printf("%d %7.20s %10.15s %10.15s %10.10s\n", listado[j].idPropietario, listado[j].nombre, listado[j].apellido, listado[j].direccion, listado[j].tarjeta);
+                    break;
+                }
+            }
+
+        }
+    }
+    printf("\n");
+    return retorno;
+}*/
+
+
 
 // ingresos
 
@@ -229,9 +328,9 @@ int eIngreso_siguienteId(eIngreso listado[])
         {
             if(listado[i].estado == OCUPADO)
             {
-                if(listado[i].idPropietario > retorno)
+                if(listado[i].idIngreso > retorno)
                 {
-                    retorno = listado[i].idPropietario;
+                    retorno = listado[i].idIngreso;
                 }
             }
         }
@@ -253,39 +352,280 @@ int devolverHorasEstadia()
 
 }
 
-int ePro_mostrarListadoAutos(eIngreso listado[])
+int ePro_mostrarListadoAutos(eIngreso ingresos[], ePropietarios propietarios[])
 {
     int retorno = 0;
     int i;
-    if(CANT_PROPIETARIOS > 0 && listado != NULL)
+    int j;
+    int auxInt;
+    char auxiliar[20];
+    char marcas[5][15]= {" ","Alpha Romeo","Ferrari","Audi","otro"};
+    for(i=0; i<19; i++)
     {
-        retorno = 1;
-        printf("PAT. ID.PRO. MARCA ID.ING\n");
-        for(i=0; i<CANT_PROPIETARIOS; i++)
+        for(j=i+1; j<CANT_PROPIETARIOS; j++)
         {
-            if(listado[i].estado==OCUPADO)
+            if(ingresos[i].estado == OCUPADO && ingresos[j].estado == OCUPADO)
             {
-                printf("%s   %d   %d  ", listado[i].patente, listado[i].idPropietario,listado[i].idIngreso, listado[i].marca);
-                if(listado[i].marca == 1)
+                if(strcmp(ingresos[i].patente, ingresos[j].patente) > 0)
                 {
-                printf("Alpha Romeo\n");
+                    strcpy(auxiliar, ingresos[i].patente);
+                    strcpy(ingresos[i].patente, ingresos[j].patente);
+                    strcpy(ingresos[j].patente, auxiliar);
+
+                    auxInt = ingresos[i].idIngreso;
+                    ingresos[i].idIngreso = ingresos[j].idIngreso;
+                    ingresos[j].idIngreso = auxInt;
+
+                    auxInt = ingresos[i].idPropietario;
+                    ingresos[i].idPropietario = ingresos[j].idPropietario;
+                    ingresos[j].idPropietario = auxInt;
+
+                    auxInt = ingresos[i].marca;
+                    ingresos[i].marca = ingresos[j].marca;
+                    ingresos[j].marca = auxInt;
                 }
-                else if(listado[i].marca == 2)
+            }
+        }
+    }
+    retorno = 1;
+    printf("PATENTE ID.PROP. ID.INGRESO MARCA DE AUTOMOVIL    NOMBRE    APELLIDO\n");
+    for(i=0; i<100; i++)
+    {
+        if(ingresos[i].estado == OCUPADO)
+        {
+            printf("%-6.5s %5d %10d %20s ", ingresos[i].patente, ingresos[i].idPropietario,ingresos[i].idIngreso, marcas[ingresos[i].marca]);
+            for(j=0; j<CANT_PROPIETARIOS; j++)
+            {
+                if(ingresos[i].idPropietario == propietarios[j].idPropietario)
                 {
-
-
-                printf("Ferrari\n");
+                    printf("%10s %10s\n", propietarios[j].nombre, propietarios[j].apellido);
                 }
-                else if(listado[i].marca == 3)
-                {
+            }
+        }
+    }
+    printf("\n");
+    return retorno;
+}
 
+// egresos
 
-                printf("AUDI\n");
-                }
-                else
-                printf("Otro\n");
+int egresoAutomovil(eIngreso ingresos[], eEgreso egresos[], ePropietarios propietarios[])
+{
+    int retorno=-1;
+    int i;
+    int aux;
+    int indice;
+    int flag=0;
+    float importe;
+    ePro_mostrarListadoAutos(ingresos, propietarios);
+    do
+    {
+        if(flag)
+        {
+            printf("Error, la ID de ingreso no se encuentra\n");
+        }
+        aux = ingresarIntValido("Ingrese el ID del auto que saldra o 0 para cancelar: \n", "Error, ingrese un numero, debe ser la ID del auto que saldra, o 0 para cancelar: \n", 0, 100);
+        if(!aux)
+        {
+            return retorno;
+        }
+        indice = buscarIdIngreso(ingresos, aux);
+        flag=1;
+    }
+    while (indice < 0);
+    aux = ingresarIntValido("Confirmar salida 1-Si 2-Cancelar: \n", "Opcion incorrecta 1-Confirmar salida 2-Cancelar: ", 1, 2);
+    if(aux == 2)
+    {
+        return retorno;
+    }
+    for(i=0; i<100; i++)
+    {
+        if(egresos[i].estado == LIBRE)
+        {
+            egresos[i].marca = ingresos[indice].marca;
+            egresos[i].idPropietario = ingresos[indice].idPropietario;
+            egresos[i].estado = OCUPADO;
+            importe = calcularImporte(egresos, ingresos[indice].marca);
+            egresos[i].importe = importe;
+            ingresos[indice].estado = LIBRE;
+            break;
+        }
+    }
+    aux = buscarPorId(propietarios, ingresos[indice].idPropietario);
+    clearScreen();
+    printf("TICKET:\nNOMBRE: %s %s PATENTE: %s MARCA:", propietarios[aux].nombre,propietarios[aux].apellido, ingresos[indice].patente);
+    switch(egresos[i].marca)
+    {
+    case 1:
+        printf(" ALPHA ROMEO ");
+        break;
+    case 2:
+        printf(" Ferrari ");
+        break;
+    case 3:
+        printf(" AUDI ");
+        break;
+    case 4:
+        printf(" Otros ");
+        break;
+    }
+    printf(" VALOR DE ESTADIA: %.2f\nPresione enter para continuar...\n", egresos[i].importe);
+    pause();
+    clearScreen();
+    retorno = 0;
+    return retorno;
+}
+
+int buscarIdIngreso(eIngreso ingresos[], int id)
+{
+    int retorno = -1;
+    int i;
+    if(100 > 0 && ingresos != NULL)
+    {
+        for(i=0; i<100; i++)
+        {
+            if(ingresos[i].idIngreso == id)
+            {
+                retorno = i;
+                break;
             }
         }
     }
     return retorno;
+}
+
+float calcularImporte(eEgreso egresos[], int marca)
+{
+    int horas;
+    float importe;
+    horas = devolverHorasEstadia();
+    switch(marca)
+    {
+    case 1:
+        importe = horas * 150;
+        break;
+    case 2:
+        importe = horas * 175;
+        break;
+    case 3:
+        importe = horas * 200;
+        break;
+    case 4:
+        importe = horas * 250;
+        break;
+    }
+    return importe;
+
+}
+
+void mostrarRecaudacion(eEgreso listado[])
+{
+    int i;
+    float recaudacion=0;
+    for(i=0; i<100; i++)
+    {
+        if(listado[i].estado)
+        {
+            recaudacion = recaudacion + listado[i].importe;
+        }
+    }
+    printf("La recaudacion total de los autos egresados es de: $%.2f\n", recaudacion);
+}
+
+void mostrarRecaudacionPorMarca(eEgreso listado[])
+{
+    int i;
+    float recaudacion[4]= {0};
+    for(i=0; i<100; i++)
+    {
+        if(listado[i].estado == OCUPADO)
+        {
+            switch(listado[i].marca)
+            {
+            case 1:
+                recaudacion[0] = recaudacion[0] + listado[i].importe;
+                break;
+            case 2:
+                recaudacion[1] = recaudacion[1] + listado[i].importe;
+                break;
+            case 3:
+                recaudacion[2] = recaudacion[2] + listado[i].importe;
+                break;
+            case 4:
+                recaudacion[3] = recaudacion[3] + listado[i].importe;
+                break;
+            }
+        }
+
+    }
+    clearScreen();
+    printf("Recaudacion por marcas:\nAlpha Romeo: $%.2f Ferrari: $%.2f Audi: $%.2f Otros: $%.2f\n", recaudacion[0], recaudacion[1], recaudacion[2], recaudacion[3]);
+}
+
+int mostrarPropietario(ePropietarios listado[], eIngreso ingresos[])
+{
+    int indice;
+    int i;
+    int aux;
+    int retorno=-1;
+    int contador=0;
+    char marcas[5][15]= {" ","Alpha Romeo","Ferrari","Audi","otro"};
+    aux = ingresarIntValido("ingrese ID a buscar:\n", "Error, ingrese el ID a buscar:\n", 0, 1000);
+    indice = buscarPorId(listado, aux);
+    if(indice < 0)
+    {
+        return retorno;
+    }
+    printf("%s %s \nMARCA               PATENTE\n", listado[indice].nombre, listado[indice].apellido);
+    for(i=0; i<100; i++)
+    {
+        if(listado[indice].idPropietario == ingresos[i].idPropietario)
+        {
+            contador++;
+            printf("%-10.15s %15.15s\n", marcas[ingresos[i].marca], ingresos[i].patente);
+        }
+    }
+    if(!contador)
+    {
+        printf("No posee autos estacionados actualmente.\n");
+    }
+    retorno = 0;
+    return retorno;
+}
+
+void propietariosDeAudi(ePropietarios listado[], eIngreso ingresos[])
+{
+    int i;
+    int j;
+    printf("Propietarios de AUDI\n");
+    printf("NOMBRE  APELLIDO    DIRECCION   TARJETA\n");
+    for(i=0; i<CANT_PROPIETARIOS; i++)
+    {
+        if(listado[i].estado == OCUPADO)
+        {
+            for(j=0; j<100; j++)
+            {
+                if(ingresos[j].estado == OCUPADO && listado[i].idPropietario == ingresos[j].idPropietario && ingresos[j].marca == 3)
+                {
+                    printf("%-8.15s %s %12.20s %12s\n", listado[i].nombre, listado[i].apellido, listado[i].direccion, listado[i].tarjeta);
+                    break;
+                }
+            }
+        }
+    }
+    printf("\n");
+}
+
+void mostrarEgresos(eEgreso egresos[])
+{
+    int i;
+    char marcas[5][15]= {" ","Alpha Romeo","Ferrari","Audi","otro"};
+    printf("MARCA                   IMPORTE           ID PROPIETARIO\n");
+    for(i=0;i<100;i++)
+    {
+        if(egresos[i].estado == OCUPADO)
+        {
+            printf("%-20.15s %10.2f %15d\n", marcas[egresos[i].marca], egresos[i].importe, egresos[i].idPropietario);
+        }
+    }
 }
