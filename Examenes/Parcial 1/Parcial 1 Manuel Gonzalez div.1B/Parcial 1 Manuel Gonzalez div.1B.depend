@@ -48,7 +48,7 @@
 
 1525999540 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\automovil.h
 
-1526521543 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.c
+1526593742 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -56,7 +56,7 @@
 	"tools.h"
 	"time.h"
 
-1526522848 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.h
+1526594093 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.h
 	"propietarios.h"
 	"ingresos.h"
 	"egresos.h"

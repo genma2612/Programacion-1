@@ -183,13 +183,11 @@ float liquidacion(ePropietarios listado[],eIngreso ingresos[],eEgreso egresos[],
     return total;
 }
 
-int ePro_mostrarListado(ePropietarios listado[])
+void ePro_mostrarListado(ePropietarios listado[])
 {
-    int retorno = 0;
     int i;
     if(CANT_PROPIETARIOS > 0 && listado != NULL)
     {
-        retorno = 1;
         printf("ID  NOMBRE   APELLIDO  DIRECCION   TARJETA\n");
         for(i=0; i<CANT_PROPIETARIOS; i++)
         {
@@ -199,7 +197,6 @@ int ePro_mostrarListado(ePropietarios listado[])
             }
         }
     }
-    return retorno;
 }
 
 /*
@@ -352,9 +349,8 @@ int devolverHorasEstadia()
 
 }
 
-int ePro_mostrarListadoAutos(eIngreso ingresos[], ePropietarios propietarios[])
+void ePro_mostrarListadoAutos(eIngreso ingresos[], ePropietarios propietarios[])
 {
-    int retorno = 0;
     int i;
     int j;
     int auxInt;
@@ -387,7 +383,6 @@ int ePro_mostrarListadoAutos(eIngreso ingresos[], ePropietarios propietarios[])
             }
         }
     }
-    retorno = 1;
     printf("PATENTE ID.PROP. ID.INGRESO MARCA DE AUTOMOVIL    NOMBRE    APELLIDO\n");
     for(i=0; i<100; i++)
     {
@@ -404,7 +399,6 @@ int ePro_mostrarListadoAutos(eIngreso ingresos[], ePropietarios propietarios[])
         }
     }
     printf("\n");
-    return retorno;
 }
 
 // egresos
