@@ -1,0 +1,7 @@
+sizeof permite saber el tamaño de una variable o tipo de dato.
+
+-> operador flecha
+
+Trabajar con el TP2 reemplazando vectores por punteros.
+
+findendof final del archivo.
