@@ -2,6 +2,7 @@ sizeof permite saber el tamaño de una variable o tipo de dato.
 
 -> operador flecha
 
-Trabajar con el TP2 reemplazando vectores por punteros.
+Trabajar con el TP2 reemplazando vectores por punteros. Agregar funcion que imprima el listado en un archivo de texto.
 
 findendof final del archivo.
+

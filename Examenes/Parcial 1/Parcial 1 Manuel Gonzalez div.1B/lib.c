@@ -24,7 +24,7 @@ int ePro_alta(ePropietarios listado[])
             ingresarStringValida("Ingrese el nombre: ", "El nombre debe contener solo letras.\n", "La cantidad max. es de 20 caracteres.\n", listado[indice].nombre, 21);
             ingresarStringValida("Ingrese el apellido: ", "El apellido debe contener solo letras.\n", "La cantidad max. es de 20 caracteres.\n", listado[indice].apellido, 21);
             ingresarStringValidaAlfa("Ingrese la direccion: ", "Solo puede contener numeros y letras\n", "La cantidad max. es de 20 caracteres\n", listado[indice].direccion, 21);
-            ingresarStringValidaAlfa("Ingrese la tarjeta: ", "Solo puede contener numeros.\n", "La cantidad max. es de 20 caracteres\n", listado[indice].tarjeta, 21);
+            ingresarStringValidaTelefono("Ingrese la tarjeta (XXX-XXX): ", "Solo puede contener numeros separados por un guiin.\n", "Cant maxima superada\n", listado[indice].tarjeta, 8);
             listado[indice].idPropietario = id;
             listado[indice].estado = OCUPADO;
             retorno = 0;
@@ -94,7 +94,7 @@ int ePro_modif(char mensaje[], ePropietarios listado[], eIngreso ingresos[])
     if(idaux == 1)
     {
         retorno = 1;
-        ingresarStringValidaAlfa("Ingrese la nueva tarjeta: ", "Solo puede contener numeros.\n", "La cantidad max. es de 20 caracteres\n", listado[indice].tarjeta, 21);
+        ingresarStringValidaTelefono("Ingrese la nueva tarjeta: (XXX-XXX)", "Solo puede contener numeros separados por un guiin.\n", "Cant maxima superada\n", listado[indice].tarjeta, 8);
     }
     clearScreen();
     return retorno;
@@ -199,64 +199,6 @@ void ePro_mostrarListado(ePropietarios listado[])
     }
 }
 
-/*
-int ePro_mostrarListado(ePropietarios listado[], eIngreso ingresos[])
-{
-    int retorno = 0;
-    int i;
-    int j;
-    char marcas[5][15]= {" ","Alpha Romeo","Ferrari","Audi","otro"};
-    char auxiliar[20];
-    int auxInt;
-    if(CANT_PROPIETARIOS > 0 && listado != NULL)
-    {
-        for(i=0; i<19; i++)
-        {
-            for(j=i+1; j<CANT_PROPIETARIOS; j++)
-            {
-                if(strcmp(ingresos[i].patente, ingresos[j].patente) < 0)
-                {
-                    strcpy(auxiliar, ingresos[i].patente);
-                    strcpy(ingresos[i].patente, ingresos[j].patente);
-                    strcpy(ingresos[j].patente, auxiliar);
-
-                    auxiliar = ingresos[i].idIngreso;
-                    ingresos[i].idIngreso = ingresos[j].idIngreso;
-                    ingresos[j].idIngreso = auxiliar;
-
-                    auxiliar = ingresos[i].idPropietario;
-                    ingresos[i].idPropietario = ingresos[j].idPropietario;
-                    ingresos[j].idPropietario = auxiliar;
-
-                    auxiliar = ingresos[i].marca;
-                    ingresos[i].marca = ingresos[j].marca;
-                    ingresos[j].marca = auxiliar;
-                }
-            }
-        }
-
-        printf("PATENTE  MARCA ID PROP. NOMBRE  APELLIDO  DIRECCION   TARJETA\n");
-
-        for(i=0; i<100; i++)
-        {
-            printf("%-10.15s %10s ", ingresos[i].patente, marcas[ingresos[i]]);
-            for(j=0; j<CANT_PROPIETARIOS; j++)
-            {
-                if(listado[i].estado==OCUPADO && ingresos[i].idPropietario == listado[j].idPropietario)
-                {
-                    printf("%d %7.20s %10.15s %10.15s %10.10s\n", listado[j].idPropietario, listado[j].nombre, listado[j].apellido, listado[j].direccion, listado[j].tarjeta);
-                    break;
-                }
-            }
-
-        }
-    }
-    printf("\n");
-    return retorno;
-}*/
-
-
-
 // ingresos
 
 int eAuto_Ingreso(eIngreso listado[], ePropietarios propietarios[])
@@ -335,8 +277,6 @@ int eIngreso_siguienteId(eIngreso listado[])
     return retorno+1;
 }
 
-
-
 int devolverHorasEstadia()
 {
     int horas;
@@ -410,6 +350,7 @@ int egresoAutomovil(eIngreso ingresos[], eEgreso egresos[], ePropietarios propie
     int aux;
     int indice;
     int flag=0;
+    char marcas[5][15]= {" ","Alpha Romeo","Ferrari","Audi","otro"};
     float importe;
     ePro_mostrarListadoAutos(ingresos, propietarios);
     do
@@ -447,22 +388,7 @@ int egresoAutomovil(eIngreso ingresos[], eEgreso egresos[], ePropietarios propie
     }
     aux = buscarPorId(propietarios, ingresos[indice].idPropietario);
     clearScreen();
-    printf("TICKET:\nNOMBRE: %s %s PATENTE: %s MARCA:", propietarios[aux].nombre,propietarios[aux].apellido, ingresos[indice].patente);
-    switch(egresos[i].marca)
-    {
-    case 1:
-        printf(" ALPHA ROMEO ");
-        break;
-    case 2:
-        printf(" Ferrari ");
-        break;
-    case 3:
-        printf(" AUDI ");
-        break;
-    case 4:
-        printf(" Otros ");
-        break;
-    }
+    printf("TICKET:\nNOMBRE: %s %s PATENTE: %s MARCA: %s", propietarios[aux].nombre,propietarios[aux].apellido, ingresos[indice].patente, marcas[egresos[i].marca]);
     printf(" VALOR DE ESTADIA: %.2f\nPresione enter para continuar...\n", egresos[i].importe);
     pause();
     clearScreen();

@@ -1,32 +1,34 @@
 # depslib dependency file v1.0
-1525964862 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.c
+1527256306 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"lib.h"
 	"tools.h"
 	"time.h"
 
-1525964432 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.h
+1527249351 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\lib.h
 	"propietarios.h"
-	"automovil.h"
+	"ingresos.h"
+	"egresos.h"
 
-1525957534 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\propietarios.h
+1527249351 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\propietarios.h
 
-1525953125 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\tools.h
+1527249351 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\tools.h
 
-1525964995 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\main.c
+1527256361 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\main.c
 	<stdio.h>
 	<stdlib.h>
 	"tools.h"
 	"lib.h"
 
-1525957586 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\propietarios.c
+1527249351 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\propietarios.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"propietarios.h"
 
-1525953125 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\tools.c
+1527249351 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\tools.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -98,4 +100,20 @@
 	"egresos.h"
 
 1526498540 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\egresos.h
+
+1527249351 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\egresos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"egresos.h"
+
+1527249351 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\egresos.h
+
+1527249351 source:d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\ingresos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ingresos.h"
+
+1527249351 d:\lab 1 temp\examenes\parcial 1\parcial 1 manuel gonzalez div.1b\ingresos.h
 
