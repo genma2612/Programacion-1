@@ -1,0 +1,30 @@
+
+//// Memoria dinamica:
+
+funcion Malloc devuelve un puntero a Void (Si no encuentra el espacio requerido, devuelve NULL). 
+Recibe la cant. de bytes en memoria necesitados.
+
+malloc(sizeof(x)); Se debe castear el tipo de datos, de Void.
+Busca x cant de bytes consecutivos y lo reserva. Si no hay, devuelve NULL.
+
+Casteo malloc 
+
+*   ()
+**  (*)
+
+Funcion realloc recibe un puntero a void. (Notas en cuaderno). Solo se puede utilizar luego de un malloc. (No pide memoria, redimensiona).
+new: palabra reservada en c++
+
+funcion free() libera memoria. Liberar una direccion a la que apuntan dos punteros es peligroso.
+
+
+Crear funcion "constructor" que se encargue del malloc.
+Crear funcion constructor que reciba parametros.
+
+constructores: funciones que se encargan de pedir espacio en memoria.
+
+
+
+//// getters/setter:
+
+Funciones especificas para campos de estructuras.

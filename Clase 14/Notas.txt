@@ -1,0 +1,10 @@
+git clone "repositorio"
+CD "directorio del repositorio" (ej: cd PunterosEnC-)
+git status
+git add . (agrega todos los archivos)
+git commit -m "Nombre del commit" 
+git push origin master -f (-f = forzado)
+
+
+dir muestra ficheros.
+shift + letra mayuscula. Tab para recorrer las carpetas o ficheros con ese nombre.
