@@ -1,0 +1,11 @@
+void** pElements
+
+pElementes = (cast a doble puntero a void) malloc(sizeof(void *)*AL_INITIAL);
+
+funciones que permiten sacar y agregar elementos al arrayList.
+
+pop 	remueve y agrega de nuevo en otro indice. Llama al remove.
+remove  remueve.
+push	ubica entre dos elementos.. Puede llamar al add.
+set		reemplaza. Puede llamar al add
+add		agrega.
