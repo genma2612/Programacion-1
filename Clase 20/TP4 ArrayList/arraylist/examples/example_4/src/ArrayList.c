@@ -105,11 +105,15 @@ int al_add(ArrayList* this, void* pElement)
 int al_deleteArrayList(ArrayList* this)
 {
     int returnAux = -1;
-
+    if(this != NULL)
+    {
+        free(this);
+        returnAux = 0;
+    }
     return returnAux;
 }
 
-/** \brief  Delete arrayList
+/** \brief  Devuelve cant. de elementos ocupados en el arrayList
  * \param pList ArrayList* Pointer to arrayList
  * \return int Return length of array or (-1) if Error [pList is NULL pointer]
  *
@@ -117,7 +121,10 @@ int al_deleteArrayList(ArrayList* this)
 int al_len(ArrayList* this)
 {
     int returnAux = -1;
-
+    if(this != NULL)
+    {
+        returnAux = this->size;
+    }
     return returnAux;
 }
 
@@ -131,7 +138,14 @@ int al_len(ArrayList* this)
 void* al_get(ArrayList* this, int index)
 {
     void* returnAux = NULL;
-
+    if(this != NULL)
+    {
+        if(index > this->size || index < 0)
+        {
+            return returnAux;
+        }
+        returnAux = this->pElements[index];
+    }
     return returnAux;
 }
 
@@ -147,6 +161,17 @@ void* al_get(ArrayList* this, int index)
 int al_contains(ArrayList* this, void* pElement)
 {
     int returnAux = -1;
+    int i;
+    if(this != NULL && pElement != NULL)
+    {
+        for(i=0;i<this->reservedSize;i++)
+        {
+            (this+i)->
+
+
+        }
+
+    }
 
     return returnAux;
 }
@@ -249,6 +274,9 @@ int al_indexOf(ArrayList* this, void* pElement)
 int al_isEmpty(ArrayList* this)
 {
     int returnAux = -1;
+
+
+
 
     return returnAux;
 }

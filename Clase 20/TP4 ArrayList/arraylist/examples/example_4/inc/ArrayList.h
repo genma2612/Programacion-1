@@ -71,7 +71,7 @@ int al_add(ArrayList* this,void* pElement);
 int al_deleteArrayList(ArrayList* this);
 
 
-/** \brief  Delete arrayList
+/** \brief  Devuelve cant. de elementos ocupados en el arrayList
  * \param pList ArrayList* Pointer to arrayList
  * \return int Return length of array or (-1) if Error [pList is NULL pointer]
  *
