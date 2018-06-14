@@ -5,6 +5,7 @@
 
 // funciones privadas
 int resizeUp(ArrayList* this);
+int resizeDown(ArrayList* this);
 int expand(ArrayList* this,int index);
 int contract(ArrayList* this,int index);
 
@@ -23,7 +24,6 @@ ArrayList* al_newArrayList(void)
     ArrayList* returnAux = NULL;
     void* pElements;
     this = (ArrayList *)malloc(sizeof(ArrayList));
-
     if(this != NULL)
     {
         pElements = malloc(sizeof(void *)*AL_INITIAL_VALUE );
@@ -55,7 +55,6 @@ ArrayList* al_newArrayList(void)
             free(this);
         }
     }
-
     return returnAux;
 }
 
@@ -76,16 +75,7 @@ int al_add(ArrayList* this, void* pElement)
     {
         if(this->size == this->reservedSize)
         {
-            aux = (void**) realloc(this->pElements, sizeof(void*)*(this->reservedSize + AL_INCREMENT)); //void (4byes) por, lo que habìa + lo nuevo que necesito.
-            if(aux!=NULL)
-            {
-                this->pElements = aux;
-                this->reservedSize = this->reservedSize + AL_INCREMENT;
-            }
-            else
-            {
-                flag = 1;
-            }
+            flag = resizeUp(this);
         }
         if(flag == 0)
         {
@@ -107,6 +97,7 @@ int al_deleteArrayList(ArrayList* this)
     int returnAux = -1;
     if(this != NULL)
     {
+        free(this->pElements);
         free(this);
         returnAux = 0;
     }
@@ -164,15 +155,16 @@ int al_contains(ArrayList* this, void* pElement)
     int i;
     if(this != NULL && pElement != NULL)
     {
-        for(i=0;i<this->reservedSize;i++)
+        returnAux = 0;
+        for(i=0;i<=this->size;i++)
         {
-            (this+i)->
-
-
+            if(this->pElements[i] == pElement)
+            {
+                returnAux = 1;
+                break;
+            }
         }
-
     }
-
     return returnAux;
 }
 
@@ -188,7 +180,18 @@ int al_contains(ArrayList* this, void* pElement)
 int al_set(ArrayList* this, int index,void* pElement)
 {
     int returnAux = -1;
+    if(this != NULL && pElement != NULL)
+    {
+        if(index >= 0 && index <= this->size)
+        {
 
+
+
+
+
+
+        }
+    }
     return returnAux;
 }
 
@@ -202,7 +205,20 @@ int al_set(ArrayList* this, int index,void* pElement)
 int al_remove(ArrayList* this,int index)
 {
     int returnAux = -1;
+    int i;
+    if(this != NULL)
+    {
+        if(index >= 0 && index <= this->size)
+        {
+            for(i=index;i<=(this->size);i++)
+            {
+                this->pElements[i] = this->pElements[i+1];
 
+            }
+            this->size--;
+            returnAux = 0;
+        }
+    }
     return returnAux;
 }
 
@@ -213,13 +229,19 @@ int al_remove(ArrayList* this,int index)
  * \return int Return (-1) if Error [pList is NULL pointer]
  *                  - ( 0) if Ok
  */
-int al_clear(ArrayList* this)
+int al_clear(ArrayList* this) //9
 {
     int returnAux = -1;
+    int i;
+    if(this != NULL)
+    {
 
+        //realocar el reservedSize a 10
+        this->size=0;
+        returnAux = 0;
+    }
     return returnAux;
 }
-
 
 
 /** \brief Returns an array containing all of the elements in this list in proper sequence
@@ -274,10 +296,18 @@ int al_indexOf(ArrayList* this, void* pElement)
 int al_isEmpty(ArrayList* this)
 {
     int returnAux = -1;
-
-
-
-
+    int i;
+    if(this != NULL)
+    {
+        returnAux = 1;
+        for(i=0;i<=this->size;i++)
+        {
+            if(this->pElements[i] != NULL)
+            {
+                returnAux = 0;
+            }
+        }
+    }
     return returnAux;
 }
 
@@ -353,9 +383,29 @@ int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
 int resizeUp(ArrayList* this)
 {
     int returnAux = -1;
-
+    void** aux;
+    aux = (void**) realloc(this->pElements, sizeof(void*)*(this->reservedSize + AL_INCREMENT)); //void (4byes) por, lo que habìa + lo nuevo que necesito.
+    if(aux!=NULL)
+    {
+        this->pElements = aux;
+        this->reservedSize = this->reservedSize + AL_INCREMENT;
+        returnAux = 0;
+    }
     return returnAux;
+}
 
+int resizeDown(ArrayList* this)
+{
+    int returnAux = -1;
+    void** aux;
+    aux = (void**) realloc(sizeof(void *)*AL_INITIAL_VALUE ); //void (4byes) por, lo que habìa + lo nuevo que necesito.
+    if(aux!=NULL)
+    {
+        this->pElements = aux;
+        this->reservedSize = this->reservedSize + AL_INCREMENT;
+        returnAux = 0;
+    }
+    return returnAux;
 }
 
 /** \brief  Expand an array list

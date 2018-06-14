@@ -9,3 +9,7 @@ remove  remueve.
 push	ubica entre dos elementos.. Puede llamar al add.
 set		reemplaza. Puede llamar al add
 add		agrega.
+
+porcion de programa en la que se puede utilizar un identificador: alcance.
+programa que combina la salida del compilador con bibliotecas: enlazador.
+La existencia de una variable es definida por las llaves.
