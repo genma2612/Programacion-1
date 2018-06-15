@@ -79,7 +79,8 @@ int al_add(ArrayList* this, void* pElement)
         }
         if(flag == 0)
         {
-            this->pElements[this->size] = pElement;
+            //this->pElements[this->size] = pElement;
+            *(this->pElements + this->size) = pElement;
             this->size++;
             returnAux=0;
         }
@@ -184,12 +185,15 @@ int al_set(ArrayList* this, int index,void* pElement)
     {
         if(index >= 0 && index <= this->size)
         {
-
-
-
-
-
-
+            if(index == this->size)
+            {
+                al_add(this, pElement);
+            }
+            else
+            {
+                *(this->pElements+index) = pElement;
+            }
+            returnAux = 0;
         }
     }
     return returnAux;
@@ -208,20 +212,14 @@ int al_remove(ArrayList* this,int index)
     int i;
     if(this != NULL)
     {
-        if(index >= 0 && index <= this->size)
+        returnAux = contract(this, index);
+        if(returnAux == 0)
         {
-            for(i=index;i<=(this->size);i++)
-            {
-                this->pElements[i] = this->pElements[i+1];
-
-            }
             this->size--;
-            returnAux = 0;
         }
     }
     return returnAux;
 }
-
 
 
 /** \brief Removes all of the elements from this list
@@ -235,10 +233,15 @@ int al_clear(ArrayList* this) //9
     int i;
     if(this != NULL)
     {
-
-        //realocar el reservedSize a 10
-        this->size=0;
-        returnAux = 0;
+        if(this->reservedSize != AL_INITIAL_VALUE)
+        {
+            returnAux = resizeDown(this); //realocar el reservedSize a 10
+        }
+        else if(this->reservedSize == AL_INITIAL_VALUE || returnAux==0)
+        {
+            this->size=0;
+            returnAux=0;
+        }
     }
     return returnAux;
 }
@@ -251,13 +254,21 @@ int al_clear(ArrayList* this) //9
  */
 ArrayList* al_clone(ArrayList* this)
 {
+    int i;
     ArrayList* returnAux = NULL;
-
+    if(this != NULL)
+    {
+        returnAux = al_newArrayList();
+        if(returnAux != NULL)
+        {
+            for(i=0;i<=this->size;i++)
+            {
+                al_add(returnAux, al_get(this, i));
+            }
+        }
+    }
     return returnAux;
 }
-
-
-
 
 /** \brief Inserts the element at the specified position
  * \param pList ArrayList* Pointer to arrayList
@@ -266,10 +277,27 @@ ArrayList* al_clone(ArrayList* this)
  * \return int Return (-1) if Error [pList or pElement are NULL pointer or invalid index]
  *                  - ( 0) if Ok
  */
-int al_push(ArrayList* this, int index, void* pElement)
+int al_push(ArrayList* this, int index, void* pElement) //alt: agregar al final,y luego swapear al indice deseado.
 {
     int returnAux = -1;
-
+    if(this != NULL && pElement != NULL)
+    {
+        if(index >= 0 && index <= this->size)
+        {
+            if(index == this->size)
+            {
+                al_add(this, pElement);
+            }
+            else if(index < this->size)
+            {
+                returnAux = expand(this, index);
+                if(returnAux == 0)
+                {
+                    *(this->pElements+index) = pElement;
+                }
+            }
+        }
+    }
     return returnAux;
 }
 
@@ -283,7 +311,18 @@ int al_push(ArrayList* this, int index, void* pElement)
 int al_indexOf(ArrayList* this, void* pElement)
 {
     int returnAux = -1;
-
+    int i;
+    if(this != NULL && pElement != NULL)
+    {
+        for(i=0;i<=this->size;i++)
+        {
+            if(*(this->pElements+i) == pElement)
+            {
+                returnAux = i;
+                break;
+            }
+        }
+    }
     return returnAux;
 }
 
@@ -299,19 +338,18 @@ int al_isEmpty(ArrayList* this)
     int i;
     if(this != NULL)
     {
-        returnAux = 1;
-        for(i=0;i<=this->size;i++)
+        if(this->size > 0)
         {
-            if(this->pElements[i] != NULL)
-            {
-                returnAux = 0;
-            }
+            returnAux = 0;
         }
+        else
+        {
+            returnAux = 1;
+        }
+
     }
     return returnAux;
 }
-
-
 
 
 /** \brief Remove the item at the given position in the list, and return it.
@@ -323,7 +361,15 @@ int al_isEmpty(ArrayList* this)
 void* al_pop(ArrayList* this,int index)
 {
     void* returnAux = NULL;
-
+    if(this != NULL)
+    {
+        returnAux = al_get(this, index);
+        if(returnAux != NULL)
+        {
+            al_add(this, returnAux);
+            al_remove(this, index);
+        }
+    }
     return returnAux;
 }
 
@@ -339,12 +385,20 @@ void* al_pop(ArrayList* this,int index)
 ArrayList* al_subList(ArrayList* this,int from,int to)
 {
     void* returnAux = NULL;
-
+    int i;
+    if(this != NULL && from >= 0 && to <= this->size)
+    {
+        returnAux = al_newArrayList();
+        if(returnAux != NULL)
+        {
+            for(i=from;i<to;i++)
+            {
+                al_add(returnAux, al_get(this, i));
+            }
+        }
+    }
     return returnAux ;
 }
-
-
-
 
 
 /** \brief Returns true if pList list contains all of the elements of pList2
@@ -398,11 +452,11 @@ int resizeDown(ArrayList* this)
 {
     int returnAux = -1;
     void** aux;
-    aux = (void**) realloc(sizeof(void *)*AL_INITIAL_VALUE ); //void (4byes) por, lo que habìa + lo nuevo que necesito.
+    aux = (void**) realloc(this->pElements, sizeof(void*)*AL_INITIAL_VALUE);
     if(aux!=NULL)
     {
         this->pElements = aux;
-        this->reservedSize = this->reservedSize + AL_INCREMENT;
+        this->reservedSize=AL_INITIAL_VALUE;
         returnAux = 0;
     }
     return returnAux;
@@ -416,8 +470,27 @@ int resizeDown(ArrayList* this)
  */
 int expand(ArrayList* this,int index)
 {
+    int i;
     int returnAux = -1;
-
+    if(this != NULL)
+    {
+        if(index >= 0 && index <= this->size)
+        {
+            if(this->size == this->reservedSize) //Que compruebe por fuera.
+            {
+                returnAux = resizeUp(this);
+            }
+            else if(this->size < this->reservedSize || returnAux == 0)
+            {
+                this->size++;
+                for(i=this->size;i>index;i--)
+                {
+                    *(this->pElements+i) = *(this->pElements+(i-1));
+                }
+                returnAux = 0;
+            }
+        }
+    }
     return returnAux;
 }
 
@@ -429,7 +502,18 @@ int expand(ArrayList* this,int index)
  */
 int contract(ArrayList* this,int index)
 {
+    int i;
     int returnAux = -1;
-
+    if(this != NULL)
+    {
+        if(index >= 0 && index <= this->size)
+        {
+            for(i=index;i<=this->size;i++)
+            {
+                *(this->pElements+i) = *(this->pElements+(i+1));
+            }
+            returnAux = 0;
+        }
+    }
     return returnAux;
 }

@@ -213,6 +213,12 @@ int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order);
  */
 int resizeUp(ArrayList* this);
 
+/** \brief Sets the number of elements in pList to AL_INITIAL_VALUE.
+ * \param pList ArrayList* Pointer to arrayList
+ * \return int Return (-1) if Error [pList is NULL pointer or if can't allocate memory]
+ *                  - (0) if ok
+ */
+int resizeDown(ArrayList* this);
 
 /** \brief  Expand an array list
  * \param pList ArrayList* Pointer to arrayList
