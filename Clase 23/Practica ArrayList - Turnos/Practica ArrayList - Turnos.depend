@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1529585537 source:d:\lab 1 temp\clase 23\practica arraylist - turnos\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1529582277 d:\lab 1 temp\clase 23\practica arraylist - turnos\arraylist.h
+
+1529582278 source:d:\lab 1 temp\clase 23\practica arraylist - turnos\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+
+1529582278 d:\lab 1 temp\clase 23\practica arraylist - turnos\tools.h
+
+1529592909 source:d:\lab 1 temp\clase 23\practica arraylist - turnos\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"turnos.h"
+	"tools.h"
+
+1529592715 d:\lab 1 temp\clase 23\practica arraylist - turnos\turnos.h
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+
+1529591574 source:d:\lab 1 temp\clase 23\practica arraylist - turnos\turnos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"turnos.h"
+
