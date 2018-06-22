@@ -34,21 +34,20 @@ int main()
         {
         case 1:
             clearScreen();
-
-
-
-            mensajeRetorno(auxiliar, "No quedan espacios disponibles\n", "Usuario dado de alta correctamente\n", "");
+            nuevoTurno(listaUrgente, turnos);
+            //mensajeRetorno(auxiliar, "No quedan espacios disponibles\n", "Usuario dado de alta correctamente\n", "");
             break;
         case 2:
             clearScreen();
-
-            mensajeRetorno(auxiliar, "Error, la ID no se encuentra.\n", "Modificacion cancelada.\n", "Usuario modificado correctamente\n");
+            nuevoTurno(listaRegular, turnos);
+            //mensajeRetorno(auxiliar, "Error, la ID no se encuentra.\n", "Modificacion cancelada.\n", "Usuario modificado correctamente\n");
             break;
         case 3:
 
             break;
         case 4:
-            listar(listaRegular, listaUrgente);
+            clearScreen();
+            listar(listaUrgente, listaRegular);
             break;
         case 5:
             clearScreen();
