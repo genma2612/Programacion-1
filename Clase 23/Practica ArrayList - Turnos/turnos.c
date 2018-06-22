@@ -100,3 +100,41 @@ void listar(ArrayList* listaUrgente, ArrayList* listaRegular)
     pause();
     clearScreen();
 }
+
+int nextClient(ArrayList* urgente, ArrayList* regular, ArrayList* atendidos, eTurno* lista)
+{
+    int retorno=-1;
+    int auxint;
+    eTurno* aux;
+    if(urgente != NULL && regular != NULL && lista != NULL)
+    {
+        retorno = 0;
+        if(al_len(urgente) > 0)
+        {
+            aux = (eTurno*) al_get(urgente, 0);
+            printf("Siguiente turno:\n");
+            printf("Nombre: %s DNI: %d\n", aux->nombre, aux->dni);
+        }
+        else
+        {
+            aux = (eTurno*) al_get(regular, 0);
+            printf("Siguiente turno:\n");
+            printf("Nombre: %s DNI: %d\n", aux->nombre, aux->dni);
+        }
+        /*auxint = ingresarIntValido("Atender? 1-Si 2-No\n", "Error\n", 1, 2);
+        if(auxint==2)
+        {
+            return retorno;
+        }
+        retorno = 1;
+        al_get()*/
+        return retorno;
+
+
+
+
+    }
+
+
+
+}

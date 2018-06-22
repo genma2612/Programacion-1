@@ -21,6 +21,7 @@ int main()
     //Creacion de arrayLists
     ArrayList* listaUrgente = al_newArrayList();
     ArrayList* listaRegular = al_newArrayList();
+    ArrayList* listaAtendidos = al_newArrayList();
     //turnos
     eTurno* turnos;
     turnos = (eTurno*) malloc(sizeof(eTurno)*20);
@@ -43,7 +44,7 @@ int main()
             //mensajeRetorno(auxiliar, "Error, la ID no se encuentra.\n", "Modificacion cancelada.\n", "Usuario modificado correctamente\n");
             break;
         case 3:
-
+            nextClient(listaUrgente, listaRegular, listaAtendidos, turnos);
             break;
         case 4:
             clearScreen();

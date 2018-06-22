@@ -70,3 +70,39 @@
 	"turnos.h"
 	"tools.h"
 
+1529677856 source:d:\lab 1 temp\clase 23\practica arraylist - turnos - copia\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1529668266 d:\lab 1 temp\clase 23\practica arraylist - turnos - copia\arraylist.h
+
+1529668266 source:d:\lab 1 temp\clase 23\practica arraylist - turnos - copia\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+
+1529668266 d:\lab 1 temp\clase 23\practica arraylist - turnos - copia\tools.h
+
+1529679708 source:d:\lab 1 temp\clase 23\practica arraylist - turnos - copia\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"turnos.h"
+	"tools.h"
+
+1529679350 d:\lab 1 temp\clase 23\practica arraylist - turnos - copia\turnos.h
+	<stdio.h>
+	<stdlib.h>
+	"tools.h"
+	"ArrayList.h"
+
+1529679757 source:d:\lab 1 temp\clase 23\practica arraylist - turnos - copia\turnos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"turnos.h"
+	"tools.h"
+

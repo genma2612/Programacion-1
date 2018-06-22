@@ -21,3 +21,5 @@ void listar(ArrayList*, ArrayList*);
 void setNombre(eTurno* this);
 
 void setDNI(eTurno* this);
+
+int nextClient(ArrayList* urgente, ArrayList* regular, ArrayList* atendidos, eTurno* lista);
