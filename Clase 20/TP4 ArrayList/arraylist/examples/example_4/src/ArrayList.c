@@ -362,7 +362,6 @@ void* al_pop(ArrayList* this,int index)
         returnAux = al_get(this, index);
         if(returnAux != NULL)
         {
-            al_add(this, returnAux);
             al_remove(this, index);
         }
     }
