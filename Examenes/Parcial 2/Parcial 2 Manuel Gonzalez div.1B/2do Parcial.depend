@@ -1,0 +1,65 @@
+# depslib dependency file v1.0
+1530197983 source:d:\temp manuel\2do parcial\2do parcial\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1530194747 d:\temp manuel\2do parcial\2do parcial\arraylist.h
+
+1530197798 source:d:\temp manuel\2do parcial\2do parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
+1530197110 d:\temp manuel\2do parcial\2do parcial\funciones.h
+	"ArrayList.h"
+
+1530197781 source:d:\temp manuel\2do parcial\2do parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"tools.h"
+	"ArrayList.h"
+
+1530186058 d:\temp manuel\2do parcial\2do parcial\tools.h
+
+1530186058 source:d:\temp manuel\2do parcial\2do parcial\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+
+1530183878 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 2\parcial 2 manuel gonzalez div.1b\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"tools.h"
+	"ArrayList.h"
+
+1530183878 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 2\parcial 2 manuel gonzalez div.1b\funciones.h
+	"ArrayList.h"
+
+1530183878 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 2\parcial 2 manuel gonzalez div.1b\arraylist.h
+
+1530183878 d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 2\parcial 2 manuel gonzalez div.1b\tools.h
+
+1530183878 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 2\parcial 2 manuel gonzalez div.1b\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+
+1531142268 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 2\parcial 2 manuel gonzalez div.1b\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1531142334 source:d:\genma\documents\apuntes y bibliografia utn\github\clases programacion y laboratorio\examenes\parcial 2\parcial 2 manuel gonzalez div.1b\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
