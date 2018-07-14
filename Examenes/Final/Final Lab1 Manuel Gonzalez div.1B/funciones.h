@@ -225,7 +225,7 @@ int lecturaDeDatosBIN(ArrayList* this);
  * \return void
  *
  */
-void actualizarArchivo(ArrayList* this, char* nombre);
+int actualizarArchivo(ArrayList* this, char* nombre);
 
 /** \brief Reescribe el archivo binario con los cambios realizados.
  *
@@ -233,7 +233,7 @@ void actualizarArchivo(ArrayList* this, char* nombre);
  * \return void
  *
  */
-void actualizarArchivoBIN(ArrayList* this);
+int actualizarArchivoBIN(ArrayList* this, char* nombre);
 
 // Comparadores
 

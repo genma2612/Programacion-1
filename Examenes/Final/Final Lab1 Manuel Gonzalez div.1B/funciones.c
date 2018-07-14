@@ -307,24 +307,19 @@ int mostrarLista(ArrayList* this, char* columnas)
 {
     int i;
     int len = this->len(this);
-    int contador=1;
     int listo = -1;
     sNumeroNatural* actual;
     if(this != NULL)
     {
-        if(columnas != NULL && strlen(columnas) < 0)
+        if(columnas != NULL && strlen(columnas) > 0)
         {
             printf("%s\n", columnas);
         }
         for(i=0; i<len; i++)
         {
-            printf("%2d ", i+1);
+            printf("%3d ", i+1);
             actual = (sNumeroNatural*) this->get(this, i);
             mostrarUno(actual);
-            if(i == 10)
-            {
-                //pause();
-            }
         }
         listo = 0;
     }
@@ -334,9 +329,11 @@ int mostrarLista(ArrayList* this, char* columnas)
 int mostrarUno(sNumeroNatural* this)
 {
     int retorno=-1;
+    char siOno[2][5]={"NO","SI"};
     if(this != NULL)
     {
-        printf("%2d %-20.40s   %d  %d  %d\n", get_int_numero(this), get_string_nombre(this), get_int_par(this), get_int_impar(this), get_int_primo(this));
+        printf("%3d %-20.40s   %s    %s    %s\n", get_int_numero(this), get_string_nombre(this), siOno[get_int_par(this)], siOno[get_int_impar(this)], siOno[get_int_primo(this)]);
+        //printf("%3d %-20.40s   %d  %d  %d\n", get_int_numero(this), get_string_nombre(this), get_int_par(this), get_int_impar(this), get_int_primo(this));
         retorno = 0;
     }
     return retorno;
@@ -446,9 +443,10 @@ int lecturaDeDatosBIN(ArrayList* this)
     return retorno;
 }
 
-void actualizarArchivo(ArrayList* this, char* nombre)
+int actualizarArchivo(ArrayList* this, char* nombre)
 {
     int i;
+    int retorno=0;
     sNumeroNatural* auxStruc;
     FILE* data = fopen(nombre,"w");
     if(data != NULL)
@@ -459,18 +457,17 @@ void actualizarArchivo(ArrayList* this, char* nombre)
             fprintf(data, "%d,%s,%d,%d,%d\n", get_int_numero(auxStruc), get_string_nombre(auxStruc), get_int_par(auxStruc), get_int_impar(auxStruc), get_int_primo(auxStruc));
         }
         fclose(data);
+        retorno = 1;
     }
-    else
-    {
-        printf("\nERROR. No se puede abrir.\n");
-    }
+    return retorno;
 }
 
-void actualizarArchivoBIN(ArrayList* this)
+int actualizarArchivoBIN(ArrayList* this, char* nombre)
 {
     int i;
+    int retorno=0;
     sNumeroNatural* auxStruc;
-    FILE* binario = fopen("binario.dat", "wb");
+    FILE* binario = fopen(nombre, "wb");
     if(binario != NULL)
     {
         for(i=0; i<this->len(this); i++)
@@ -479,11 +476,9 @@ void actualizarArchivoBIN(ArrayList* this)
             fwrite(auxStruc, sizeof(sNumeroNatural),1, binario);
         }
         fclose(binario);
+        retorno = 1;
     }
-    else
-    {
-        printf("\nERROR. No se puede abrir.\n");
-    }
+    return retorno;
 }
 
 // Comparadores
